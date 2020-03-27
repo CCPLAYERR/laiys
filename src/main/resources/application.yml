@@ -1,0 +1,7 @@
+laiys:
+  clientId: 754db0ff0ba546c3a2c18b44ae40b919
+  clientSecret: e8a74cfb64b57376af047f55c81a3c8f2148a514
+  duoId: 9465135
+  duoIdLv1: 131476285
+server :
+  port : 9980
