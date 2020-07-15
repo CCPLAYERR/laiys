@@ -3,36 +3,38 @@ package com.ddjb.laiys.controller;
 import com.ddjb.laiys.pojo.Url;
 import com.ddjb.laiys.service.DDJBService;
 import com.pdd.pop.sdk.common.util.JsonUtil;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-@CrossOrigin
-@RestController
+//@CrossOrigin
+@Controller
+@RequestMapping("/ddjb")
 public class DDJBController {
 
     @Autowired
     private DDJBService DDJBservice;
 
 
-    @RequestMapping(value = "/Url/getSingleGoodsPromotionUrl", produces = "text/script;charset=UTF-8", method = RequestMethod.GET)
-    public String getGoodsPromotionUrl(Long goodsId, String callback) {
-//    public Url getGoodsPromotionUrl(){
+    @ResponseBody
+    @GetMapping("/linkGenerate")
+    public Url getGoodsPromotionUrl(@RequestParam("goodsId") String goodsId) {
+        long goodsId1 = Long.parseLong(goodsId);
         ArrayList<Long> longs = new ArrayList<>();
-//        longs.add(93466463587L);
-        longs.add(goodsId);
+        longs.add(goodsId1);
         Url url = DDJBservice.PddDdkGoodsPromotionUrlGenerateService(longs);
         System.out.println("拼多多拼单转换链接: " + url.getMobile_url());
-        return callback + "(" + JsonUtil.transferToJson(url) + ")";
+        return url;
     }
 
-    @RequestMapping(value = "/Url/helloWorld", produces = "text/script;charset=UTF-8", method = RequestMethod.GET)
-    public String sayHello( String callback) {
-        return callback + "(" + "hello" + ")";
+    @GetMapping("/getSingleGoodsPromotionUrl")
+    public String getSingleGoodsPromotionUrl() {
+        return "/ddjb/ddjb";
     }
+
 }

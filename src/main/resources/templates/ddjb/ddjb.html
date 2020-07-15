@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://111.229.115.69:8080/tools/?#/ddjb -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>laiysweb</title>
+</head>
+
+<body>
+<div id="app" style="margin-left: 5%;margin-right: 5%">
+
+    <div style="text-align: center">
+        <h1>请输入商品ID</h1>
+    </div>
+
+    <div style="text-align: center" >
+        <form id="ddjbform">
+            <div class="form-group">
+                <label for="goodsId"></label>
+                <input style="margin-right: 25%;margin-left: 25%;width: 50%" type="text" class="form-control"
+                       name="goodsId" id="goodsId" placeholder="商品id">
+            </div>
+            <button type="button" onclick="linkGenerate();" class="btn btn-info">一键生成</button>
+        </form>
+
+
+        <div style="text-align: center;margin-top: 1%">
+
+            <div id="goodsDiv" hidden="hidden"  style="margin-top: 1%" class="form-group">
+                <label for="pid">链接所属Pid</label>
+                <input readonly="readonly" type="text" style="width: 16%;margin-left: 42%;margin-right: 42%;text-align: center"
+                       class="form-control" id="pid">
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <label for="linkContent" style="float: left"><h2>拼多多拼单转换链接:</h2></label>
+            <textarea class="form-control" style="resize: vertical" readonly="readonly" id="linkContent"
+                      rows="3"
+                      cols="200"></textarea>
+
+            <br>
+
+            <!--            <button>打开链接</button>-->
+            <button type="button" class="btn btn-info" onclick="copyLink();">一键复制链接</button>
+        </div>
+    </div>
+</div>
+<div id="linkTransferTool"></div>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script type="text/javascript" src="../static/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="../static/js/appjs/ddjb/ddjb.js"></script>
+</body>
+</html>

@@ -5,3 +5,10 @@ laiys:
   duoIdLv1: 131476285
 server :
   port : 9980
+spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
